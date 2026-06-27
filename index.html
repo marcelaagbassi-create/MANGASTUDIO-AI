@@ -381,4 +381,58 @@
 
     </div>
                     </main>
+        <!-- New Project Modal -->
+    <div id="new-project-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-2xl p-6 space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="font-bold text-white text-lg flex items-center gap-2">
+                    <i data-lucide="plus-circle" class="text-blue-500"></i> Nouveau Projet Manga
+                </h3>
+                <button onclick="closeNewProjectModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Titre de l'œuvre</label>
+                    <input type="text" id="modal-project-title" placeholder="Ex: Shadow Weaver" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Genre de Manga</label>
+                    <select id="modal-project-genre" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500">
+                        <option value="Shonen d'Action & Aventures">Shonen (Action, Aventure, Combat)</option>
+                        <option value="Seinen Dark Fantasy">Seinen (Sombre, Psychologique, Mature)</option>
+                        <option value="Shojo Romance">Shojo (Romance, Tranche de vie)</option>
+                        <option value="Cyberpunk Sci-Fi">Mecha / Cyberpunk de Science-Fiction</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Pitch Global</label>
+                    <textarea id="modal-project-pitch" rows="3" placeholder="Ex: Dans un monde où les ombres prennent vie, un jeune orphelin hérite du pouvoir du Roi Ombre déchu..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"></textarea>
+                </div>
+            </div>
+            <div class="flex gap-2 pt-2">
+                <button onclick="closeNewProjectModal()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold py-2 rounded-lg text-sm transition">Annuler</button>
+                <button onclick="createNewProject()" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 rounded-lg text-sm transition">Créer le Projet</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/state.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/characters.js"></script>
+    <script src="js/episodes.js"></script>
+    <script src="js/boards.js"></script>
+
+    <!-- Initialisation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            loadProjectList();
+            updateDashboardStats();
+            changeLayout();
+        });
+    </script>
+</body>
+</html>
     
