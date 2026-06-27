@@ -45,3 +45,117 @@
             </button>
         </div>
     </header>
+    <!-- Main Workspace -->
+<main class="flex-1 flex flex-col md:flex-row h-[calc(100vh-65px)] overflow-hidden">
+
+    <!-- Sidebar -->
+    <div class="w-full md:w-80 border-r border-slate-800 bg-slate-900/40 p-4 flex flex-col justify-between overflow-y-auto shrink-0">
+        <div class="space-y-6">
+            <!-- Project Selector -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Projet Actif</h3>
+                    <span class="bg-blue-500/10 text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-blue-500/20">En cours</span>
+                </div>
+                <h2 id="active-project-title" class="text-lg font-bold text-white mb-1">Mon Premier Manga</h2>
+                <p id="active-project-genre" class="text-xs text-slate-400 flex items-center gap-1">
+                    <i data-lucide="tags" class="w-3 h-3 text-indigo-400"></i> Style: Shonen d'Action
+                </p>
+            </div>
+
+            <!-- AI Studio -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 space-y-3">
+                <div class="flex items-center gap-2 text-indigo-400 font-semibold text-xs uppercase tracking-wider">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    <span>Studio IA Engine</span>
+                </div>
+                <p class="text-xs text-slate-400">Générez une idée de scénario global ou un prompt de personnage en un clic.</p>
+                <div class="space-y-2">
+                    <button onclick="generateGlobalConcept()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 py-2 px-3 rounded-lg text-xs font-medium transition flex items-center justify-between">
+                        <span>Idée d'histoire originale</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <button onclick="optimizePromptHelper()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 py-2 px-3 rounded-lg text-xs font-medium transition flex items-center justify-between">
+                        <span>Optimiseur de Prompt Manga</span>
+                        <i data-lucide="wand-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="space-y-2">
+                <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-1">Banque d'images générées</h3>
+                <div id="quick-gallery" class="grid grid-cols-3 gap-2 bg-slate-950 p-2 rounded-xl border border-slate-800/60 max-h-48 overflow-y-auto">
+                    <div class="col-span-3 text-center py-4 text-xs text-slate-500">Aucune image générée pour le moment.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Status -->
+        <div class="pt-4 border-t border-slate-800/80 mt-6">
+            <div class="flex items-center justify-between text-xs bg-emerald-500/5 border border-emerald-500/10 p-2.5 rounded-lg">
+                <div class="flex items-center space-x-2">
+                    <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <span class="text-slate-400 font-medium">Gemini 2.5 Flash</span>
+                </div>
+                <span class="text-emerald-400 font-bold text-[10px]">PRET</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs Container -->
+    <div class="flex-1 flex flex-col h-full overflow-y-auto bg-slate-950/60 relative">
+
+        <!-- Dashboard Tab -->
+        <div id="tab-dashboard" class="tab-content p-6 space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800 pb-5">
+                <div>
+                    <h1 class="text-2xl font-extrabold text-white">Gestionnaire de Projets Manga</h1>
+                    <p class="text-sm text-slate-400">Gérez vos séries, vos concepts et les chapitres de vos mangas.</p>
+                </div>
+                <button onclick="openNewProjectModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm py-2.5 px-4 rounded-xl transition flex items-center gap-2 shadow-lg shadow-blue-500/20">
+                    <i data-lucide="plus" class="w-4 h-4"></i> Nouveau Projet
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 flex items-center space-x-4">
+                    <div class="bg-indigo-500/10 text-indigo-400 p-3 rounded-lg"><i data-lucide="book" class="w-6 h-6"></i></div>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Projets Totaux</p>
+                        <p id="stat-projects-count" class="text-xl font-bold text-white">1</p>
+                    </div>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 flex items-center space-x-4">
+                    <div class="bg-blue-500/10 text-blue-400 p-3 rounded-lg"><i data-lucide="users" class="w-6 h-6"></i></div>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Personnages</p>
+                        <p id="stat-characters-count" class="text-xl font-bold text-white">0</p>
+                    </div>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 flex items-center space-x-4">
+                    <div class="bg-purple-500/10 text-purple-400 p-3 rounded-lg"><i data-lucide="film" class="w-6 h-6"></i></div>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Épisodes/Chapitres</p>
+                        <p id="stat-episodes-count" class="text-xl font-bold text-white">0</p>
+                    </div>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 flex items-center space-x-4">
+                    <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-lg"><i data-lucide="grid" class="w-6 h-6"></i></div>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Planches Créées</p>
+                        <p id="stat-boards-count" class="text-xl font-bold text-white">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                    <i data-lucide="folder-kanban" class="w-5 h-5 text-indigo-400"></i> Vos Séries Actives
+                </h2>
+                <div id="projects-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            </div>
+        </div>
+        <!-- Fin du Dashboard Tab -->
