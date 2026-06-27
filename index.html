@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MangaStudio AI - Créateur de Manga Professionnel</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Permanent+Marker&display=swap" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="bg-gradient-to-tr from-blue-600 to-indigo-600 p-2 rounded-xl shadow-lg shadow-indigo-500/20">
+                <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+            </div>
+            <div>
+                <span class="manga-font text-2xl tracking-wider bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">MANGASTUDIO AI</span>
+                <span class="text-[10px] block text-slate-400 font-semibold tracking-widest uppercase">Manga Engine Pro v1.0</span>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <button onclick="switchTab('dashboard')" class="nav-btn active flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 text-white transition">
+                <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                <span class="hidden md:inline">Projets</span>
+            </button>
+            <button onclick="switchTab('characters')" class="nav-btn flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white transition">
+                <i data-lucide="users" class="w-4 h-4"></i>
+                <span class="hidden md:inline">Personnages</span>
+            </button>
+            <button onclick="switchTab('episodes')" class="nav-btn flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white transition">
+                <i data-lucide="clapperboard" class="w-4 h-4"></i>
+                <span class="hidden md:inline">Épisodes</span>
+            </button>
+            <button onclick="switchTab('board-editor')" class="nav-btn flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white transition">
+                <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                <span class="hidden md:inline">Planches</span>
+            </button>
+        </div>
+    </header>
